@@ -1,4 +1,0 @@
-pi
-==
-
-raspberry Pi work
