@@ -1,0 +1,13 @@
+#!/bin/bash
+
+process=temp
+
+if ps ax | grep -v grep | grep $process > /dev/null
+        then
+                echo " is running "
+        else
+        	echo " is not running " 
+        fi
+exit
+
+

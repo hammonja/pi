@@ -1,0 +1,24 @@
+#!/bin/bash
+
+
+sensor1="NO"
+sensor2="NO"
+
+while [[ "$sensor1" == *NO* ]]
+do
+cat /sys/bus/w1/devices/28-0000040cb5aa/w1_slave > _sensor1;
+sensor1=$(cat _sensor1); 
+done
+
+while [[ "$sensor2" == *NO* ]]
+do
+cat /sys/bus/w1/devices/28-0000040cb8b1/w1_slave > _sensor2;
+sensor2=$(cat _sensor2);
+done
+
+VALOR=$(cat _sensor1 | grep t= | cut -f2 -d= | awk '{print $1/1000}')
+VALOR2=$(cat _sensor2 | grep t= | cut -f2 -d= | awk '{print $1/1000}')
+
+echo $VALOR
+echo $VALOR2
+
