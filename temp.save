@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+
+cat sensor1 >> /var/www/log1.html
+echo "<br>"$VALOR"<br>" >> /var/www/log1.html
+cat sensor2 >> /var/www/log2.html 
+echo "<br>"$VALOR2"<br>" >> /var/www/log2.html 
+T="$(date -u)"
+echo ","$VALOR >> middle
+echo ","$VALOR2 >> middle2
+cat startlive > /var/www/glive.html
+cat middle >> /var/www/glive.html
+cat mmiddle2 >> /var/www/glive.html
+cat middle2 >> /var/www/glive.html
+cat end >> /var/www/glive.html
+echo "<br>Current Office Temp is :"$VALOR"<br> Current Outside Temp is :"$VALOR2"<br>last update"$T"</body></html>" >> /var/www/glive.html
+sleep 300
+done
