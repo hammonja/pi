@@ -1,0 +1,14 @@
+auto lo
+auto wlan0
+
+iface lo inet loopback
+iface eth0 inet dhcp
+
+iface wlan0 inet static
+wpa-ssid "O2wirelessEEAA73"
+wpa-psk "FF3857D837"
+address 192.168.1.10
+netmask 255.255.255.0
+gateway 192.168.1.254
+broadcast 192.168.1.255
+
