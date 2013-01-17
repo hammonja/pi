@@ -2,6 +2,10 @@
 
 cd /home/hammonja
 
+touch _sensor1
+touch _sensor2
+touch db
+
 i="0"
 
 while [ $i -lt 4 ]
