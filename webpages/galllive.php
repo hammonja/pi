@@ -43,7 +43,7 @@ Date.prototype.customFormat = function(formatString){
                 text: 'Temperature Station @ 44 Rances Lane'
             },
             subtitle: {
-                text: 'last 24 hours data'
+                text: 'all data'
             },
             xAxis: {
                 type: 'datetime',
@@ -75,7 +75,7 @@ Date.prototype.customFormat = function(formatString){
                 data: [ 
 		<?php
 		//query the database
-                $query = mysql_query("SELECT * FROM rances44.sensordata where sensor='28-0000040cb5aa' and date >= SYSDATE() - INTERVAL 1 DAY");
+                $query = mysql_query("SELECT * FROM rances44.sensordata where sensor='28-0000040cb5aa'");
 
                 //fetch the results / convert results into an array
                 $bob=0;
@@ -99,8 +99,7 @@ Date.prototype.customFormat = function(formatString){
                 data: [ 
 		<?php
 		//query the database
-                $query = mysql_query("SELECT * FROM rances44.sensordata where sensor='28-0000040cb8b1' and date >= SYSDATE() - INTERVAL 1 DAY");
-
+                $query = mysql_query("SELECT * FROM rances44.sensordata where sensor='28-0000040cb8b1'");
                 //fetch the results / convert results into an array
                 $bob=0;
                 WHILE($rows = mysql_fetch_array($query)):
@@ -134,7 +133,7 @@ Date.prototype.customFormat = function(formatString){
 <center>
                 <?php
                 //query the database
-                 $query = mysql_query("SELECT min(temp) as mint, max(temp) as maxt FROM rances44.sensordata where sensor='28-0000040cb5aa' and date >= SYSDATE() - INTERVAL 1 DAY");
+                 $query = mysql_query("SELECT min(temp) as mint, max(temp) as maxt FROM rances44.sensordata where sensor='28-0000040cb5aa'");
                 //fetch the results / convert results into an array
                 WHILE($rows = mysql_fetch_array($query)):
                     $min = $rows['mint'];
@@ -145,7 +144,7 @@ Date.prototype.customFormat = function(formatString){
 
                 <?php
                 //query the database
-                 $query = mysql_query("SELECT min(temp) as mint, max(temp) as maxt FROM rances44.sensordata where sensor='28-0000040cb8b1' and date >= SYSDATE() - INTERVAL 1 DAY");
+                 $query = mysql_query("SELECT min(temp) as mint, max(temp) as maxt FROM rances44.sensordata where sensor='28-0000040cb8b1'");
                 WHILE($rows = mysql_fetch_array($query)):
                     $min = $rows['mint'];
                     $max = $rows['maxt'];
@@ -153,8 +152,8 @@ Date.prototype.customFormat = function(formatString){
                 ?>
 <h3>Current Outside Temp <?php echo "$outsidetemp C</h3> min : $min C max : $max C" ?> <br>
 <p>
-Last data update @ <?php echo $date; ?> <br> last page update @ <?php echo date("F j, Y, g:i a"); ?><p>
-<a href="galllive.php"> click here to see all data  </a>
+this page is updated every 5 minutes <br> last update @ <?php echo date("F j, Y, g:i a"); ?><p>
+<a href="glive.php"> click here to see 24 hour data  </a>
 <p><img src='test.jpeg'>
 </center>
 </body>

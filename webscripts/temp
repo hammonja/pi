@@ -2,10 +2,6 @@
 
 cd /home/hammonja
 
-touch _sensor1
-touch _sensor2
-touch db
-
 i="0"
 
 while [ $i -lt 4 ]
@@ -33,18 +29,6 @@ VALOR2=$(cat _sensor2 | grep t= | cut -f2 -d= | awk '{print $1/1000}')
 
 echo "<br>"$VALOR"<br>" >> /var/www/log1.html 
 echo "<br>"$VALOR2"<br>" >> /var/www/log2.html 
-T="$(echo $(($(date +%s%N)/1000000)))"
-T2="$(date -u)"
-echo ",["$T","$VALOR"]" >> middle
-echo ",["$T","$VALOR2"]" >> middle2
-
-cat startlive > /var/www/glive.html
-cat middle >> /var/www/glive.html
-cat mmiddle2 >> /var/www/glive.html
-cat middle2 >> /var/www/glive.html
-cat end >> /var/www/glive.html
-
-echo "<P>Current Office Temp is :"$VALOR"<P> Current Outside Temp is :"$VALOR2"<P>last update @ "$T2"<p><img src='test.jpeg'</body></html>" >> /var/www/glive.html
 
 fswebcam -d  /dev/video0 -r 640x480 /var/www/test.jpeg > /dev/null 2>&1
 
@@ -55,5 +39,4 @@ mysql -uroot -psophie1 rances44 < db
 
 
 sleep 300
-
 done
