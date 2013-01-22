@@ -154,7 +154,7 @@ Date.prototype.customFormat = function(formatString){
 <p>
 this page is updated every 5 minutes <br> last update @ <?php echo date("F j, Y, g:i a"); ?><p>
 <a href="glive.php"> click here to see 24 hour data  </a>
-<p><img src='test.jpeg'>
+<p>
 </center>
 </body>
 </html>

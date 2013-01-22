@@ -50,8 +50,7 @@ mysql_connect('localhost', 'root', 'sophie1');
                 ?>
 <h3>Current Outside Temp <?php echo "$outsidetemp C</h3> min : $min C max : $max C" ?> <br>
 <p>
-Last data update @ <?php echo $date; ?> <br> last page update @ <?php echo date("F j, Y, g:i a"); ?><p>
-</center>
+Last data update @ <?php echo $date; ?> <br>Uptime: <?=`uptime;`?> <p></center>
 </font>
 </body>
 </html>

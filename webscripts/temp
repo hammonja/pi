@@ -30,7 +30,7 @@ VALOR2=$(cat _sensor2 | grep t= | cut -f2 -d= | awk '{print $1/1000}')
 echo "<br>"$VALOR"<br>" >> /var/www/log1.html 
 echo "<br>"$VALOR2"<br>" >> /var/www/log2.html 
 
-fswebcam -d  /dev/video0 -r 640x480 /var/www/test.jpeg > /dev/null 2>&1
+#fswebcam -d  /dev/video0 -r 640x480 /var/www/test.jpeg > /dev/null 2>&1
 
 echo "INSERT INTO ``rances44``.``sensordata`` (``ID``, ``date``, ``sensor``, ``temp``) VALUES (NULL, NOW(),'28-0000040cb5aa', '"$VALOR"');" > db
 echo "INSERT INTO ``rances44``.``sensordata`` (``ID``, ``date``, ``sensor``, ``temp``) VALUES (NULL, NOW(),'28-0000040cb8b1', '"$VALOR2"');" >> db

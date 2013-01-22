@@ -153,9 +153,9 @@ Date.prototype.customFormat = function(formatString){
                 ?>
 <h3>Current Outside Temp <?php echo "$outsidetemp C</h3> min : $min C max : $max C" ?> <br>
 <p>
-Last data update @ <?php echo $date; ?> <br> last page update @ <?php echo date("F j, Y, g:i a"); ?><p>
+Last data update @ <?php echo $date; ?> <br>Uptime: <?=`uptime;`?> <p>
 <a href="galllive.php"> click here to see all data  </a>
-<p><img src='test.jpeg'>
+<p>
 </center>
 </body>
 </html>
